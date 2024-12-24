@@ -1,0 +1,294 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main-container {
+        width: 100%;
+        height: 815px;
+        background: #f3f5f9 0% 0% no-repeat padding-box;
+        box-sizing: border-box;
+        display: flex;
+      }
+      .head-container {
+        top: 32px;
+        left: 270px;
+        width: 78.5%;
+        height: 50px;
+        position: relative;
+        background-color: aqua;
+        display: inline-block;
+        border: 1px none;
+        border-radius: 10px;
+        padding: 6px;
+        box-sizing: border-box;
+      }
+      .addnewclient {
+        bottom: 13px;
+        left: 20px;
+        width: 150px;
+        height: 24px;
+        position: relative;
+        text-align: left;
+        font: normal normal bold 20px/23px Rubik;
+        letter-spacing: 0px;
+        color: #ffffff;
+        text-transform: capitalize;
+        opacity: 1;
+      }
+      .side-bar {
+        top: 0px;
+        left: 0px;
+        width: 250px;
+        height: 728px;
+        position: relative;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 20px #5b93ed33;
+        opacity: 1;
+      }
+
+      @media only screen and (max-width: 1280px) {
+        .head-container {
+          top: 5px;
+          left: 5px;
+          width: 99%;
+          height: 50px;
+          position: relative;
+          background-color: aqua;
+          box-sizing: border-box;
+          border: 1px none;
+          border-radius: 10px;
+          padding: 6px;
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        .head-container {
+          top: 5px;
+          left: 5px;
+          width: 98%;
+          height: 50px;
+          position: relative;
+          background-color: aqua;
+          box-sizing: border-box;
+          border: 1px none;
+          border-radius: 10px;
+          padding: 6px;
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        .head-container {
+          top: 5px;
+          left: 5px;
+          width: 96%;
+          height: 50px;
+          position: relative;
+          background-color: aqua;
+          box-sizing: border-box;
+          border: 1px none;
+          border-radius: 10px;
+          padding: 6px;
+        }
+      }
+
+      .test1{
+        display: flex;
+        width: 100%;
+        height: 200px;
+        background-color: aqua;
+      }
+       .test3{
+        float: right;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+     <div class="main-container">
+      <div class="side-bar">hshhsh</div>
+      <div class="head-container">
+        <p class="addnewclient">Add New Client</p>
+      </div>
+    </div> 
+
+    <div class="test1">
+      <p>test1</p>
+      <p class="test3">test2</p>
+    </div>
+  </body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Table with Axios</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+    </style>
+
+    
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script>
+         async function fetchData() {
+             try {
+                //  const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+                //  const data = response.data;
+                axios.get('https://jsonplaceholder.typicode.com/users')
+                .then((res)=>{
+                  return  populateTable(res.data);
+                })
+                //  populateTable(data);
+             } catch (error) {  
+                 console.error('Error fetching data:', error);
+             }
+         }
+ 
+         function populateTable(data) {
+             const tableBody = document.getElementById('data-table').querySelector('tbody');
+             data.forEach(item => {
+                 const row = document.createElement('tr');
+                 const idCell = document.createElement('td');
+                 const nameCell = document.createElement('td');
+                 const emailCell = document.createElement('td');
+ 
+                 idCell.textContent = item.id;
+                 nameCell.textContent = item.name;
+                 emailCell.textContent = item.email;
+ 
+                 row.appendChild(idCell);
+                 row.appendChild(nameCell);
+                 row.appendChild(emailCell);
+                 tableBody.appendChild(row);
+             });
+         }
+ 
+         document.addEventListener('DOMContentLoaded', fetchData);
+     </script>
+ 
+</head>
+<body>
+
+    <h1>Data from API</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+   
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Table with Axios</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Data from API</h1>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <!-- Include Axios from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function fetchData() {
+            try {
+                const response = await axios.get('https://fakestoreapi.com/users');
+                const data = response.data;
+                populateTable(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function populateTable(data) {
+            const tableBody = document.getElementById('data-table').querySelector('tbody');
+            const rows = data.map(item => {
+                const row = document.createElement('tr');
+
+                const idCell = document.createElement('td');
+                idCell.textContent = item.id;
+                row.appendChild(idCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = `${item.name.firstname} ${item.name.lastname}`;
+                row.appendChild(nameCell);
+
+                const emailCell = document.createElement('td');
+                emailCell.textContent = item.email;
+                row.appendChild(emailCell);
+
+                const usernameCell = document.createElement('td');
+                usernameCell.textContent = item.username;
+                row.appendChild(usernameCell);
+
+                const phoneCell = document.createElement('td');
+                phoneCell.textContent = item.phone;
+                row.appendChild(phoneCell);
+
+                const addressCell = document.createElement('td');
+                addressCell.textContent = `${item.address.number} ${item.address.street}, ${item.address.city}, ${item.address.zipcode}`;
+                row.appendChild(addressCell);
+
+                return row;
+            });
+
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Example</title>
+</head>
+<body>
+    <select id="firstDropdown" onchange="handleOptionChange()">
+        <option value="">Select an option</option>
+        <option value="v1">v1</option>
+        <option value="v2">v2</option>
+    </select>
+
+    <select id="secondDropdown" style="display:none;">
+        <option value="">Select a sub-option</option>
+    </select>
+
+    <script>
+        const data = [
+            {
+                id: 1,
+                option1: "v1",
+                list1: [
+                    { id: 11, name: "option11" },
+                    { id: 12, name: "option12" },
+                    { id: 13, name: "option13" }
+                ]
+            },
+            {
+                id: 2,
+                option1: "v2",
+                list2: [
+                    { id: 21, name: "option21" },
+                    { id: 22, name: "option22" },
+                    { id: 23, name: "option23" }
+                ]
+            }
+        ];
+
+        function handleOptionChange() {
+            const firstDropdown = document.getElementById('firstDropdown');
+            const secondDropdown = document.getElementById('secondDropdown');
+            const selectedValue = firstDropdown.value;
+
+            secondDropdown.style.display = selectedValue ? 'block' : 'none';
+
+            while (secondDropdown.options.length > 1) {
+                secondDropdown.remove(1);
+            }
+
+            const selectedData = data.find(item => item.option1 === selectedValue);
+            if (selectedData) {
+                const listData = selectedValue === 'v1' ? selectedData.list1 : selectedData.list2;
+                listData.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.name;
+                    option.text = item.name;
+                    secondDropdown.add(option);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

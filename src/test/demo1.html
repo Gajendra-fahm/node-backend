@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <script>
+        function handleChenge (e) {
+            const regex = /^[A-Za-z0-9_-]*$/;
+            if (!regex.test(e.value)) {
+                alert("Special characters are not allowed!");
+                e.value = e.value.replace(/[^A-Za-z0-9_-]/g, '');
+            }
+            console.log("test", e.value);
+        }
+
+            
+    
+    </script>
+</head>
+<body>
+    <input  type="text" onchange="handleChenge(this)" pattern="^[A-Za-z0-9_-]*$" maxlength="5" />
+</body>
+</html>
